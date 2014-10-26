@@ -12,6 +12,7 @@ func main() {
 	sig := make(chan os.Signal, 1)
 	signal.Notify(sig, os.Interrupt, os.Kill)
 	for i := 0; i < 10; i++ {
+		fmt.Println("Doing heavy task ...")
 		time.Sleep(1 * time.Second)
 		select {
 		case <-sig:
